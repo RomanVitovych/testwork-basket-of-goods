@@ -1,0 +1,8 @@
+.mainWrap {
+    position: relative;
+}
+
+.horizontalLine {
+    border: 2px solid #000000;
+    margin: 10px 0;
+}

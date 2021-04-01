@@ -1,0 +1,80 @@
+.productItem {
+  position: relative;
+  width: 240px;
+  border: solid 1px transparent;
+  padding: 10px;
+  margin: 10px 20px;
+  transition: all 0.2s linear;  
+  cursor: pointer; 
+}
+
+.productsList:focus,
+.productItem:hover {
+  border: solid 1px gray;
+  transform: scale(1.03);
+  box-shadow: 
+    0px 2px 4px 1px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 1px rgba(0, 0, 0, 0.14), 
+    0px 3px 2px -1px rgba(0, 0, 0, 0.12);
+}
+
+.image {
+  position: relative;
+}
+
+.name {
+  height: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: normal;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  color: blue;
+}
+
+.style {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.isFree {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  padding: 5px;
+  background-color: green;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  border: solid 1px #fff;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  padding: 15px 10px;
+  margin: 0 auto;
+  transition: all 0.3s linear;
+}
+.btn:focus,
+.btn:hover {
+  border: solid 1px #000;
+  background-color: #fff;
+  color: #000;
+}
+
+
+
