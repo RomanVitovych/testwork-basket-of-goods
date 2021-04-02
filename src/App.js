@@ -5,6 +5,7 @@ import Main from './Components/Main/Main';
 import Cart from './Components/Cart/Cart';
 
 import productsData from './db/products.json';
+import sizesData from './db/sizes.json';
 import './App.css';
 
 
@@ -13,6 +14,7 @@ class App extends Component {
     isCartOpen: false,
     order: [],
     products: productsData,
+    sizes: sizesData,
   };
   
   
@@ -20,6 +22,13 @@ class App extends Component {
     this.setState(prevStatus => ({
       isCartOpen: !prevStatus.isCartOpen
     }));
+  };
+
+  handleChooseSize = (value) => {
+    const sizeItem = (this.state.products
+      .map(el => el.availableSizes
+        .includes(value)));
+    console.log(sizeItem);
   };
 
   addToCart = id => {
@@ -104,11 +113,16 @@ class App extends Component {
   
 
   render() {
-    const { isCartOpen, order, products } = this.state;
+    const { isCartOpen, order, products, sizes } = this.state;
     return (
       <>
         <Header />
-        <Main products={products} addToCart={this.addToCart} />
+        <Main
+          sizes={sizes}
+          products={products}
+          addToCart={this.addToCart}
+          onChooseSize={this.handleChooseSize}
+        />
         <Cart
           cartStatus={isCartOpen}
           onToggle={this.toggleCart}

@@ -34,9 +34,6 @@ const CartItem = ({
                 <p className={styles.title} >{title}</p>
                 <p className={styles.desc} >{style}</p>
                 <p className={styles.desc} >Quantity: {sum}</p>
-            </div>
-            <div className={styles.cartItem__price} >
-                <p>{currFormat}{(sum*price).toFixed(2)} {currId} </p>
                 <form className={styles.form} onSubmit={(e)=>e.preventDefault()}>
                     <label>
                         <input
@@ -47,6 +44,11 @@ const CartItem = ({
                             />
                     </label>
                 </form>
+            </div>
+            <div className={styles.cartItem__price} >
+                <p>Price: <br/>{currFormat}{(price).toFixed(2)} {currId} </p>
+                <p>Total price: <br/>{currFormat}{(sum*price).toFixed(2)} {currId} </p>
+
                 {/* <button
                     type='button'
                     value={otherCount}

@@ -4,14 +4,19 @@ import PropTypes from 'prop-types';
 import styles from './SingleFilter.module.css';
 
 
-const SingleFilter = ({value}) => {
+const SingleFilter = ({ value, chooseSize }) => {
     return (
-        <div className={styles.availableSize} >
+        <li className={styles.availableSize} >
             <label className={styles.label} >
-                <input className={styles.input} type='checkbox' value={value} />
+                <input
+                    className={styles.input}
+                    type='checkbox'
+                    value={value}
+                    onClick={()=>chooseSize(value)}
+                />
                 <span className={styles.checkmark} >{value}</span>
             </label>
-        </div>
+        </li>
     );
 };
 

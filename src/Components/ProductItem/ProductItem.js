@@ -13,6 +13,7 @@ const Products = ({
     currId,
     style,
     freeShipping,
+    isAvailable,
     addToCart,
     id 
 }) => {
@@ -28,6 +29,9 @@ const Products = ({
             <p className={styles.name} >{title}</p>
             <p className={styles.price} >Price: {currFormat}{price} {currId}</p>
             <p className={styles.style} >Style: {style}</p>
+            <p className={styles.size} >
+                Available sizes: {isAvailable.map(el => <span>{el}</span>)}
+            </p>
             {freeShipping && <p className={styles.isFree} >Free shipping!</p>}
             <button
                 className={styles.btn}

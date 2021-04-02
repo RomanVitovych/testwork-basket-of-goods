@@ -42,6 +42,15 @@
   font-weight: 300;
 }
 
+.size {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.size span {
+  margin: 0 4px;
+}
+
 .isFree {
   position: absolute;
   top: 0;

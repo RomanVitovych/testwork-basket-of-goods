@@ -3,10 +3,10 @@ import React from 'react';
 import Filter from '../Filter/Filter';
 import ProductsList from '../ProductsList/ProductsList';
 
-const Main = ({ products, addToCart }) => {
+const Main = ({ sizes, products, addToCart, onChooseSize }) => {
     return (
         <main>
-            <Filter />
+            <Filter sizes={sizes} onChooseSize={onChooseSize}/>
             <ProductsList products={products} addToCart={addToCart} />
         </main>
     );

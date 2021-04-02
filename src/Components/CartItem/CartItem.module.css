@@ -6,6 +6,10 @@
   transition: background-color 0.2s, opacity 0.2s;
   display: flex;
   align-items: center;
+  border: 1px solid #5b5a5e;
+}
+.cartItem:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 .cartItem:before {
@@ -82,6 +86,10 @@
 .changeProductBtn {
     padding: 5px 10px;
     cursor: pointer;
+}
+
+.form {
+  display: inline-block;
 }
 
 .input {

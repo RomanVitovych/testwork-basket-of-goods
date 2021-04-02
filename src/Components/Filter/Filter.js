@@ -2,17 +2,22 @@ import React from 'react';
 
 import SingleFilter from '../SingleFilter/SingleFilter';
 
-import sizes from '../../db/sizes.json';
 import styles from './Filter.module.css';
 
-const Filter = () => {
+
+const Filter = ({ sizes, onChooseSize }) => {
     return (
         <div className={styles.container} >
             <div className={styles.filter} >
                 <h4 className={styles.title} >Size:</h4>
+                <ul className={styles.sizesList} >
                     {sizes.map(size =>
-                    <SingleFilter key={size} value={size} />
-            )}
+                        <SingleFilter
+                            key={size}
+                            value={size}
+                            chooseSize={onChooseSize} />
+                    )}
+                </ul>
             </div>
         </div>
     );

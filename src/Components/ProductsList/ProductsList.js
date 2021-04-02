@@ -20,6 +20,7 @@ const ProductsList = ({ products, addToCart }) => {
                             currId={prod.currencyId}
                             style={prod.style}
                             freeShipping={prod.isFreeShipping}
+                            isAvailable={prod.availableSizes}
                             addToCart={addToCart}
                             id={prod.id}
                         />
