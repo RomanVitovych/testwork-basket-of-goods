@@ -16,6 +16,7 @@ const CartItem = ({
     removeFromCart,
     handleChange,
     otherCount,
+    size,
 }) => {
 
     const sum = Number(count) + Number(otherCount);
@@ -44,6 +45,7 @@ const CartItem = ({
                             />
                     </label>
                 </form>
+                <p className={styles.size}>Size: {size}</p>
             </div>
             <div className={styles.cartItem__price} >
                 <p>Price: <br/>{currFormat}{(price).toFixed(2)} {currId} </p>

@@ -96,6 +96,7 @@ const Cart = ({
                         removeFromCart={removeFromCart}
                         handleChange={onHandleChange}
                         otherCount={orderItem.otherCount}
+                        size={orderItem.size}
                     />)}
                 </ul>
                 <div className='float-cart__footer' >

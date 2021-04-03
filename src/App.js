@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import AlertMessage from './Components/AlertMessage/AlertMessage';
 import Header from './Components/Header/Header';
 import Main from './Components/Main/Main';
 import Cart from './Components/Cart/Cart';
@@ -15,6 +16,7 @@ class App extends Component {
     order: [],
     products: productsData,
     sizes: sizesData,
+    alert: false,
   };
   
   
@@ -25,10 +27,10 @@ class App extends Component {
   };
 
   handleChooseSize = (value) => {
-    const sizeItem = (this.state.products
-      .map(el => el.availableSizes
-        .includes(value)));
-    console.log(sizeItem);
+    this.state.order.map(el => el.availableSizes.find(one => one === value)
+      ? this.state.order.map(el => el.size = value)
+      : this.setState({ alert: true }))
+    setTimeout(() => this.setState({ alert: false }), 5000);
   };
 
   addToCart = id => {
@@ -113,9 +115,10 @@ class App extends Component {
   
 
   render() {
-    const { isCartOpen, order, products, sizes } = this.state;
+    const { isCartOpen, order, products, sizes, alert } = this.state;
     return (
       <>
+        <AlertMessage alert={alert} message={'Please select an available size!'} />
         <Header />
         <Main
           sizes={sizes}

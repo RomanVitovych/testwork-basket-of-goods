@@ -1,0 +1,39 @@
+.alert {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 35%;
+    height: 100px;
+    width: 400px;
+    background: darkorange;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.enterActive {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+.enterDone {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 500ms linear;
+}
+
+.exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+.exitActive {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 500ms linear;
+}
