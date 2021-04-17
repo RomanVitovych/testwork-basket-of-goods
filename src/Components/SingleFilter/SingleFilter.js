@@ -21,7 +21,8 @@ const SingleFilter = ({ value, chooseSize }) => {
 };
 
 SingleFilter.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    chooseSize: PropTypes.func.isRequired,
 };
 
 export default SingleFilter;

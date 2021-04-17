@@ -47,8 +47,8 @@
   font-weight: 500;
   text-transform: uppercase;
 }
-.size span {
-  margin: 0 4px;
+.size select {
+  margin-left: 25px;
 }
 
 .isFree {
@@ -77,6 +77,7 @@
   padding: 15px 10px;
   margin: 0 auto;
   transition: all 0.3s linear;
+  margin-top: 14px;
 }
 .btn:focus,
 .btn:hover {

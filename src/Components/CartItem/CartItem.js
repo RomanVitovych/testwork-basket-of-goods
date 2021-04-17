@@ -70,11 +70,11 @@ CartItem.propTypes = {
     price: PropTypes.number,
     currId: PropTypes.string,
     style: PropTypes.string,
-    count: PropTypes.number.isRequired,
+    count: PropTypes.number,
     removeFromCart: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
-    otherCount: PropTypes.number.isRequired,
-    
+    otherCount: PropTypes.number,
+    size: PropTypes.string
 }
 
 export default CartItem;

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import styles from './ProductItem.module.css';
 
 
-const Products = ({
-    keyId,
+const ProductItem = ({
+    id,
     url,
     title,
     currFormat,
@@ -15,11 +15,12 @@ const Products = ({
     freeShipping,
     isAvailable,
     addToCart,
-    id 
+    size,
+    onSelectSize
 }) => {
 
     return (
-        <li key={keyId} className={styles.productItem}>
+        <li className={styles.productItem} key={id}>
             <img
                 className={styles.image}
                 src={url}
@@ -29,9 +30,12 @@ const Products = ({
             <p className={styles.name} >{title}</p>
             <p className={styles.price} >Price: {currFormat}{price} {currId}</p>
             <p className={styles.style} >Style: {style}</p>
-            <p className={styles.size} >
-                Available sizes: {isAvailable.map(el => <span>{el}</span>)}
-            </p>
+            <label className={styles.size} > Available sizes:
+                <select name='size' value={size} onChange={(e)=>onSelectSize(e)}>
+                    <option value='' disabled>please select</option>
+                    {isAvailable.map(el => <option value={el}>{el}</option>)}
+                </select>
+            </label>
             {freeShipping && <p className={styles.isFree} >Free shipping!</p>}
             <button
                 className={styles.btn}
@@ -42,16 +46,17 @@ const Products = ({
     );
 };
 
-Products.propTypes = {
-    keyId: PropTypes.number.isRequired,
+ProductItem.propTypes = {
     id: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
     title: PropTypes.string,
     currFormat: PropTypes.string,
     price: PropTypes.number.isRequired,
     currId: PropTypes.string,
     style: PropTypes.string,
-    freeShipping: PropTypes.bool.isRequired,
+    freeShipping: PropTypes.bool,
+    isAvailable: PropTypes.array,
+    addToCart: PropTypes.func.isRequired,
 };
 
-export default Products;
+export default ProductItem;

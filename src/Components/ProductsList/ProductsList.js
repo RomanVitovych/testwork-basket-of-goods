@@ -5,14 +5,14 @@ import ProductItem from '../ProductItem/ProductItem';
 import styles from './ProductsList.module.css';
 
 
-const ProductsList = ({ products, addToCart }) => {
+const ProductsList = ({ products, addToCart, size, onSelectSize }) => {
     return (
         <div className={styles.background}>
             <div className={styles.container}>
                 <ul className={styles.productsList}>
                     {products.map(prod => 
                         <ProductItem
-                            keyId={prod.id}
+                            key={prod.id}
                             url={prod.img}
                             title={prod.title}
                             currFormat={prod.currencyFormat}
@@ -23,6 +23,8 @@ const ProductsList = ({ products, addToCart }) => {
                             isAvailable={prod.availableSizes}
                             addToCart={addToCart}
                             id={prod.id}
+                            size={size}
+                            onSelectSize={onSelectSize}
                         />
                     )}
                 </ul>

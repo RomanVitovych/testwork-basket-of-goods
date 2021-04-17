@@ -14,9 +14,11 @@ class App extends Component {
   state = {
     isCartOpen: false,
     order: [],
+    filterProducts: [],
     products: productsData,
     sizes: sizesData,
     alert: false,
+    size: '',
   };
   
   
@@ -27,10 +29,13 @@ class App extends Component {
   };
 
   handleChooseSize = (value) => {
-    this.state.order.map(el => el.availableSizes.find(one => one === value)
-      ? this.state.order.map(el => el.size = value)
-      : this.setState({ alert: true }))
-    setTimeout(() => this.setState({ alert: false }), 5000);
+    this.state.products.map(el => el.availableSizes.filter(one => {
+      if (one === value) {
+        this.state.products.push(el);
+        // this.setState({...el})
+      };
+    }));
+    console.log(this.state.products);
   };
 
   addToCart = id => {
@@ -67,7 +72,7 @@ class App extends Component {
         e.target.value = 0;
       }
     };
-
+  
   handleSortNameA = (order) => {
     const nameA = order.sort((a, b) => {
       if (a.title < b.title) {
@@ -112,10 +117,14 @@ class App extends Component {
     const quantityB = order.sort((a, b) => (b.count + b.otherCount) - (a.count + a.otherCount));
     this.setState({ order: quantityB });
   };
+
+  handleSelectSize = (e) => {
+    this.setState({ size: e.target.value });
+  };
   
 
   render() {
-    const { isCartOpen, order, products, sizes, alert } = this.state;
+    const { isCartOpen, order, products, sizes, alert, size } = this.state;
     return (
       <>
         <AlertMessage alert={alert} message={'Please select an available size!'} />
@@ -125,6 +134,8 @@ class App extends Component {
           products={products}
           addToCart={this.addToCart}
           onChooseSize={this.handleChooseSize}
+          size={size}
+          onSelectSize={this.handleSelectSize}
         />
         <Cart
           cartStatus={isCartOpen}
@@ -138,6 +149,7 @@ class App extends Component {
           onSortByPriceB={this.handleSortPriceB}
           onSortByQuantityA={this.handleSortQuantityA}
           onSortByQuantityB={this.handleSortQuantityB}
+          size={size}
         />
       </>
     );

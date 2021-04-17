@@ -18,6 +18,7 @@ const Cart = ({
     onSortByPriceB,
     onSortByQuantityA,
     onSortByQuantityB,
+    size,
 }) => {
 
     const total = () => {
@@ -85,7 +86,8 @@ const Cart = ({
                 </ul>
                 <ul className='float-cart__card-container' >
                     {order.map(orderItem => <CartItem
-                        id={orderItem.id}
+                        // id={orderItem.id}
+                        key={orderItem.id}
                         url={orderItem.img}
                         title={orderItem.title}
                         currFormat={orderItem.currencyFormat}
@@ -96,7 +98,7 @@ const Cart = ({
                         removeFromCart={removeFromCart}
                         handleChange={onHandleChange}
                         otherCount={orderItem.otherCount}
-                        size={orderItem.size}
+                        size={size}
                     />)}
                 </ul>
                 <div className='float-cart__footer' >
