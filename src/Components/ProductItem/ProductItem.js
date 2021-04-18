@@ -20,7 +20,7 @@ const ProductItem = ({
 }) => {
 
     return (
-        <li className={styles.productItem} key={id}>
+        <li className={styles.productItem} >
             <img
                 className={styles.image}
                 src={url}
@@ -31,7 +31,7 @@ const ProductItem = ({
             <p className={styles.price} >Price: {currFormat}{price} {currId}</p>
             <p className={styles.style} >Style: {style}</p>
             <label className={styles.size} > Available sizes:
-                <select name='size' value={size} onChange={(e)=>onSelectSize(e)}>
+                <select name='size' value={size} onChange={(e) => onSelectSize(e)}>
                     <option value='' disabled>please select</option>
                     {isAvailable.map(el => <option value={el}>{el}</option>)}
                 </select>
@@ -57,6 +57,8 @@ ProductItem.propTypes = {
     freeShipping: PropTypes.bool,
     isAvailable: PropTypes.array,
     addToCart: PropTypes.func.isRequired,
+    size: PropTypes.string,
+    onSelectSize: PropTypes.func.isRequired,
 };
 
 export default ProductItem;

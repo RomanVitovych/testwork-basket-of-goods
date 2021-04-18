@@ -86,7 +86,7 @@ const Cart = ({
                 </ul>
                 <ul className='float-cart__card-container' >
                     {order.map(orderItem => <CartItem
-                        // id={orderItem.id}
+                        id={orderItem.id}
                         key={orderItem.id}
                         url={orderItem.img}
                         title={orderItem.title}
@@ -125,6 +125,7 @@ Cart.propTypes = {
     onSortByPriceB: PropTypes.func.isRequired,
     onSortByQuantityA: PropTypes.func.isRequired,
     onSortByQuantityB: PropTypes.func.isRequired,
+    size: PropTypes.string,
 };
 
 export default Cart;

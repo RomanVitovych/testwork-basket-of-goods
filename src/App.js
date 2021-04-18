@@ -28,15 +28,18 @@ class App extends Component {
     }));
   };
 
-  handleChooseSize = (value) => {
+  handleChooseSize = (value) => {       
     this.state.products.map(el => el.availableSizes.filter(one => {
       if (one === value) {
-        this.state.products.push(el);
-        // this.setState({...el})
+        this.state.filterProducts.push(el);
+        // this.setState({filterProducts: [...el]})
       };
     }));
-    console.log(this.state.products);
+    console.log(this.state.filterProducts);
   };
+
+
+  
 
   addToCart = id => {
     const productItem = this.state.products.find(product => product.id === id);

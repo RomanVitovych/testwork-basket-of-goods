@@ -13,6 +13,7 @@ const ProductsList = ({ products, addToCart, size, onSelectSize }) => {
                     {products.map(prod => 
                         <ProductItem
                             key={prod.id}
+                            id={prod.id}
                             url={prod.img}
                             title={prod.title}
                             currFormat={prod.currencyFormat}
@@ -22,7 +23,6 @@ const ProductsList = ({ products, addToCart, size, onSelectSize }) => {
                             freeShipping={prod.isFreeShipping}
                             isAvailable={prod.availableSizes}
                             addToCart={addToCart}
-                            id={prod.id}
                             size={size}
                             onSelectSize={onSelectSize}
                         />
